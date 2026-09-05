@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Skill Assessment | SmartCourse</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #07152f;
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            padding: 20px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: #07152f;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.08);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #00d9ff;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav a {
+            color: #dce8f7;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        nav a:hover {
+            color: #00d9ff;
+            background: rgba(0,217,255,0.08);
+        }
+
+        .logout {
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        /* ================= PAGE ================= */
+
+        .page {
+            max-width: 850px;
+            margin: auto;
+            padding: 60px 25px 80px;
+        }
+
+        .page-heading {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .tag {
+            display: inline-block;
+
+            padding: 9px 18px;
+
+            border-radius: 25px;
+
+            background:
+                rgba(0,217,255,0.08);
+
+            border:
+                1px solid
+                rgba(0,217,255,0.18);
+
+            color: #00d9ff;
+
+            font-size: 14px;
+
+            margin-bottom: 18px;
+        }
+
+        .page-heading h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .page-heading p {
+            color: #9fb0c8;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        /* ================= ASSESSMENT CARD ================= */
+
+        .assessment-card {
+            background:
+                rgba(255,255,255,0.035);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.10);
+
+            border-radius: 20px;
+
+            padding: 35px;
+
+            box-shadow:
+                0 20px 45px
+                rgba(0,0,0,0.18);
+        }
+
+        /* ================= QUESTION ================= */
+
+        .question {
+            margin-bottom: 30px;
+        }
+
+        .question:last-of-type {
+            margin-bottom: 10px;
+        }
+
+        .question-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 12px;
+        }
+
+        .question-title label {
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .question-title span {
+            color: #00d9ff;
+            font-size: 14px;
+        }
+
+        /* ================= INPUT ================= */
+
+        .score-input {
+            width: 100%;
+
+            padding: 14px 16px;
+
+            border-radius: 10px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.16);
+
+            background:
+                rgba(255,255,255,0.05);
+
+            color: white;
+
+            font-size: 16px;
+
+            outline: none;
+
+            transition: 0.25s;
+        }
+
+        .score-input:focus {
+            border-color: #00d9ff;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(0,217,255,0.08);
+        }
+
+        .score-input::placeholder {
+            color: #72849d;
+        }
+
+        /* ================= RANGE ================= */
+
+        .range-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        input[type="range"] {
+            flex: 1;
+            accent-color: #00d9ff;
+            cursor: pointer;
+        }
+
+        .range-value {
+            width: 55px;
+
+            text-align: center;
+
+            padding: 7px 5px;
+
+            border-radius: 7px;
+
+            background:
+                rgba(0,217,255,0.08);
+
+            color: #00d9ff;
+
+            font-weight: 700;
+        }
+
+        /* ================= DIVIDER ================= */
+
+        .divider {
+            height: 1px;
+
+            background:
+                rgba(255,255,255,0.08);
+
+            margin: 30px 0;
+        }
+
+        /* ================= SUBMIT ================= */
+
+        .submit-area {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .submit-btn {
+            width: 100%;
+
+            padding: 16px;
+
+            border: none;
+
+            border-radius: 11px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #00d9ff,
+                    #00a8ff
+                );
+
+            color: #06152d;
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 22px
+                rgba(0,217,255,0.15);
+
+            transition: 0.25s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 28px
+                rgba(0,217,255,0.25);
+        }
+
+        /* ================= NOTE ================= */
+
+        .note {
+            text-align: center;
+
+            color: #73869f;
+
+            font-size: 13px;
+
+            margin-top: 15px;
+
+            line-height: 1.5;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #050f22;
+
+            padding: 28px;
+
+            text-align: center;
+
+            color: #75869f;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.08);
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 650px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .page {
+                padding:
+                    45px 15px 60px;
+            }
+
+            .page-heading h1 {
+                font-size: 32px;
+            }
+
+            .assessment-card {
+                padding: 23px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+
+        🎓 Smart<span>Course</span>
+
+    </div>
+
+
+    <nav>
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/about">
+            About
+        </a>
+
+        <a href="/recommendation">
+            Courses
+        </a>
+
+        <a href="/dashboard">
+            Dashboard
+        </a>
+
+        <a href="/logout"
+           class="logout">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="page">
+
+
+    <div class="page-heading">
+
+        <div class="tag">
+            🧠 AI-Powered Assessment
+        </div>
+
+        <h1>
+            Discover Your Career Path
+        </h1>
+
+        <p>
+            Rate your current skills from 0 to 100.
+            Our recommendation system will analyze your
+            strengths and suggest a suitable career path.
+        </p>
+
+    </div>
+
+
+    <!-- ================= FORM ================= -->
+
+    <div class="assessment-card">
+
+
+        <form action="/ai_result"
+              method="POST">
+
+
+            <!-- PROGRAMMING -->
+
+            <div class="question">
+
+                <div class="question-title">
+
+                    <label>
+                        💻 Programming
+                    </label>
+
+                    <span>
+                        Score: <b id="programmingValue">50</b>
+                    </span>
+
+                </div>
+
+
+                <div class="range-row">
+
+                    <input
+                        type="range"
+                        name="programming"
+                        id="programming"
+                        min="0"
+                        max="100"
+                        value="50"
+                        oninput="updateValue('programming')">
+
+                    <div class="range-value"
+                         id="programmingBox">
+                        50
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MATHEMATICS -->
+
+            <div class="question">
+
+                <div class="question-title">
+
+                    <label>
+                        📐 Mathematics
+                    </label>
+
+                    <span>
+                        Score: <b id="mathsValue">50</b>
+                    </span>
+
+                </div>
+
+
+                <div class="range-row">
+
+                    <input
+                        type="range"
+                        name="maths"
+                        id="maths"
+                        min="0"
+                        max="100"
+                        value="50"
+                        oninput="updateValue('maths')">
+
+                    <div class="range-value"
+                         id="mathsBox">
+                        50
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROBLEM SOLVING -->
+
+            <div class="question">
+
+                <div class="question-title">
+
+                    <label>
+                        🧩 Problem Solving
+                    </label>
+
+                    <span>
+                        Score: <b id="problemValue">50</b>
+                    </span>
+
+                </div>
+
+
+                <div class="range-row">
+
+                    <input
+                        type="range"
+                        name="problem"
+                        id="problem"
+                        min="0"
+                        max="100"
+                        value="50"
+                        oninput="updateValue('problem')">
+
+                    <div class="range-value"
+                         id="problemBox">
+                        50
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- COMMUNICATION -->
+
+            <div class="question">
+
+                <div class="question-title">
+
+                    <label>
+                        🗣️ Communication
+                    </label>
+
+                    <span>
+                        Score: <b id="communicationValue">50</b>
+                    </span>
+
+                </div>
+
+
+                <div class="range-row">
+
+                    <input
+                        type="range"
+                        name="communication"
+                        id="communication"
+                        min="0"
+                        max="100"
+                        value="50"
+                        oninput="updateValue('communication')">
+
+                    <div class="range-value"
+                         id="communicationBox">
+                        50
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CREATIVITY -->
+
+            <div class="question">
+
+                <div class="question-title">
+
+                    <label>
+                        🎨 Creativity
+                    </label>
+
+                    <span>
+                        Score: <b id="creativityValue">50</b>
+                    </span>
+
+                </div>
+
+
+                <div class="range-row">
+
+                    <input
+                        type="range"
+                        name="creativity"
+                        id="creativity"
+                        min="0"
+                        max="100"
+                        value="50"
+                        oninput="updateValue('creativity')">
+
+                    <div class="range-value"
+                         id="creativityBox">
+                        50
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="divider"></div>
+
+
+            <div class="submit-area">
+
+                <button
+                    type="submit"
+                    class="submit-btn">
+
+                    🎯 Analyze My Skills
+
+                </button>
+
+
+                <p class="note">
+
+                    Your scores will be analyzed using the
+                    recommendation rules in the system.
+
+                </p>
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        © 2026 Smart Course Recommendation System
+    </p>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+function updateValue(id) {
+
+    const slider =
+        document.getElementById(id);
+
+    const value =
+        slider.value;
+
+
+    document.getElementById(
+        id + "Value"
+    ).innerText = value;
+
+
+    document.getElementById(
+        id + "Box"
+    ).innerText = value;
+
+}
+
+</script>
+
+
+</body>
+
+</html>

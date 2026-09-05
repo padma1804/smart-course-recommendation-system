@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About - Smart Course Recommendation System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: white;
+
+            background:
+                linear-gradient(rgba(0, 8, 20, 0.80),
+                                rgba(0, 8, 20, 0.90)),
+                url("{{ url_for('static', filename='images/background.jpg') }}");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #163d82;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 30px;
+            color: white;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            background: #1450a3;
+            padding: 18px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0 20px;
+        }
+
+        nav a:hover {
+            color: #00d9ff;
+        }
+
+        /* ABOUT CONTAINER */
+
+        .about-container {
+            width: 85%;
+            max-width: 900px;
+
+            margin: 60px auto;
+
+            text-align: center;
+        }
+
+        /* TITLE */
+
+        .about-title {
+            font-size: 48px;
+            color: white;
+
+            margin-bottom: 40px;
+
+            text-shadow:
+                0 0 10px rgba(0, 200, 255, 0.5);
+        }
+
+        /* SECTIONS */
+
+        .about-section {
+
+            background: rgba(255, 255, 255, 0.08);
+
+            border: 1px solid rgba(0, 200, 255, 0.4);
+
+            border-radius: 18px;
+
+            padding: 35px;
+
+            margin: 30px auto;
+
+            max-width: 800px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.35);
+
+            backdrop-filter: blur(5px);
+        }
+
+        .about-section h2 {
+
+            color: #00d9ff;
+
+            font-size: 30px;
+
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+
+            color: white;
+
+            font-size: 20px;
+
+            line-height: 1.8;
+        }
+
+        /* FEATURES */
+
+        .features {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 20px;
+
+            margin-top: 20px;
+        }
+
+        .feature {
+
+            background: rgba(0, 90, 180, 0.25);
+
+            padding: 20px;
+
+            border-radius: 12px;
+
+            border-left: 4px solid #00d9ff;
+        }
+
+        .feature h3 {
+
+            color: #00d9ff;
+
+            font-size: 22px;
+
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+
+            font-size: 17px;
+
+            line-height: 1.6;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .about-container {
+                width: 92%;
+                margin-top: 35px;
+            }
+
+            .about-title {
+                font-size: 34px;
+            }
+
+            .about-section {
+                padding: 25px 18px;
+            }
+
+            .about-section h2 {
+                font-size: 25px;
+            }
+
+            .about-section p {
+                font-size: 17px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 8px;
+                font-size: 17px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>🎓 Smart Course Recommendation System</h1>
+
+</header>
+
+
+<nav>
+
+    <a href="/">Home</a>
+
+    <a href="/about">About</a>
+
+    <a href="/recommendation">Courses</a>
+
+    <a href="/login">Login</a>
+
+    <a href="/register">Register</a>
+
+</nav>
+
+
+<div class="about-container">
+
+    <h1 class="about-title">
+        About Our Project
+    </h1>
+
+
+    <!-- SECTION 1 -->
+
+    <div class="about-section">
+
+        <h2>📚 About the System</h2>
+
+        <p>
+            The Smart Course Recommendation System helps students
+            choose the best course according to their interests,
+            skills, and career goals.
+        </p>
+
+    </div>
+
+
+    <!-- SECTION 2 -->
+
+    <div class="about-section">
+
+        <h2>🤖 Artificial Intelligence</h2>
+
+        <p>
+            It uses Artificial Intelligence and Machine Learning
+            concepts to recommend suitable courses for students
+            based on their skill assessment.
+        </p>
+
+    </div>
+
+
+    <!-- SECTION 3 -->
+
+    <div class="about-section">
+
+        <h2>🎯 Career Recommendation</h2>
+
+        <p>
+            The system analyzes programming, mathematics,
+            problem-solving, communication, and creativity skills
+            to suggest a suitable career path.
+        </p>
+
+    </div>
+
+
+    <!-- SECTION 4 -->
+
+    <div class="about-section">
+
+        <h2>💡 Key Features</h2>
+
+        <div class="features">
+
+            <div class="feature">
+
+                <h3>🧠 AI Skill Assessment</h3>
+
+                <p>
+                    Evaluates the student's skills and identifies
+                    suitable career options.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <h3>📖 Course Recommendation</h3>
+
+                <p>
+                    Provides courses related to the recommended
+                    career and area of interest.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <h3>🛣️ Learning Roadmap</h3>
+
+                <p>
+                    Provides a step-by-step learning path to help
+                    students develop their skills.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <h3>🏆 Certificate</h3>
+
+                <p>
+                    Generates a personalized certificate after
+                    completing the selected course and learning
+                    roadmap.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SECTION 5 -->
+
+    <div class="about-section">
+
+        <h2>🚀 Project Objective</h2>
+
+        <p>
+            The main objective of this project is to help students
+            make better career and course decisions by providing
+            personalized recommendations based on their skills,
+            interests, and career goals.
+        </p>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

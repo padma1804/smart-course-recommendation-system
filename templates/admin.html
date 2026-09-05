@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .admin-container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 50px auto;
+        }
+
+        .admin-title {
+            text-align: center;
+            color: white;
+            font-size: 35px;
+            margin-bottom: 40px;
+        }
+
+        .admin-cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .admin-card {
+            width: 250px;
+            padding: 30px;
+            text-align: center;
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .admin-card h2 {
+            color: #0d47a1;
+            font-size: 38px;
+            margin: 10px;
+        }
+
+        .admin-card p {
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .admin-table {
+            width: 100%;
+            margin-top: 50px;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .admin-table th {
+            background: #0d47a1;
+            color: white;
+            padding: 15px;
+        }
+
+        .admin-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .back-btn {
+            display: block;
+            width: 180px;
+            margin: 40px auto;
+            padding: 12px;
+            text-align: center;
+            background: #0d47a1;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .back-btn:hover {
+            background: #1565c0;
+        }
+
+    </style>
+
+</head>
+
+
+<body class="recommend-bg">
+
+
+<header>
+
+    <h1>🎓 Smart Course Recommendation System</h1>
+
+</header>
+
+
+<nav>
+
+    <a href="/">Home</a>
+
+    <a href="/dashboard">Dashboard</a>
+
+    <a href="/recommendation">Courses</a>
+
+    <a href="/logout">Logout</a>
+
+</nav>
+
+
+<div class="admin-container">
+
+
+    <h1 class="admin-title">
+        🛠️ Admin Dashboard
+    </h1>
+
+
+    <!-- ================= STATISTICS ================= -->
+
+    <div class="admin-cards">
+
+
+        <div class="admin-card">
+
+            <h2>{{ total_users }}</h2>
+
+            <p>👥 Registered Users</p>
+
+        </div>
+
+
+        <div class="admin-card">
+
+            <h2>{{ total_courses }}</h2>
+
+            <p>📚 Available Courses</p>
+
+        </div>
+
+
+        <div class="admin-card">
+
+            <h2>{{ total_enrollments }}</h2>
+
+            <p>🎓 Enrollments</p>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ================= USER TABLE ================= -->
+
+    <h2 style="color:white; text-align:center; margin-top:50px;">
+
+        👥 Registered Users
+
+    </h2>
+
+
+    <table class="admin-table">
+
+        <thead>
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Full Name</th>
+
+                <th>Email</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            {% for user in users %}
+
+            <tr>
+
+                <td>{{ user[0] }}</td>
+
+                <td>{{ user[1] }}</td>
+
+                <td>{{ user[2] }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+
+    <a href="/dashboard" class="back-btn">
+
+        ⬅ Back to Dashboard
+
+    </a>
+
+
+</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Enrollment Successful</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body class="recommend-bg">
+
+<header>
+<h1>🎓 Smart Course Recommendation System</h1>
+</header>
+
+<div class="container">
+
+<h1 style="color:#00ff99;">
+
+🎉 Enrollment Successful!
+
+</h1>
+
+<div class="card">
+
+<h2>
+
+Congratulations,
+
+{{ fullname }}
+
+</h2>
+
+<p class="analysis-text">
+
+You have successfully enrolled in
+
+<b>{{ course }}</b>
+
+</p>
+
+<br>
+
+<a href="/learning_roadmap">
+
+<button class="next-btn">
+
+🛣️ Continue to Learning Roadmap
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>

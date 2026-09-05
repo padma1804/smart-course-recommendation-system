@@ -1,0 +1,2321 @@
+/* =========================================================
+   SMART COURSE RECOMMENDATION SYSTEM
+   MAIN STYLE SHEET
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #07152f,
+            #081a3a,
+            #061329
+        );
+
+    color: white;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+a {
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+button {
+    font-family: Arial, Helvetica, sans-serif;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header,
+.main-header {
+    width: 100%;
+
+    min-height: 78px;
+
+    padding: 0 6%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background:
+        linear-gradient(
+            90deg,
+            #09245a,
+            #0b3478
+        );
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,0.25);
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+    color: white;
+
+    font-size: 26px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+.logo span {
+    color: #00d9ff;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav,
+.main-nav {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+}
+
+
+nav a,
+.main-nav a {
+    min-width: 90px;
+
+    min-height: 42px;
+
+    padding: 0 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #dce8f7;
+
+    background: transparent;
+
+    border:
+        1px solid
+        transparent;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        all 0.25s ease;
+}
+
+
+nav a:hover,
+.main-nav a:hover {
+    color: #00d9ff;
+
+    background:
+        rgba(0,217,255,0.08);
+
+    border-color:
+        rgba(0,217,255,0.25);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+.logout {
+    border:
+        1px solid
+        rgba(255,255,255,0.18);
+}
+
+
+/* =========================================================
+   GENERAL PAGE CONTAINER
+========================================================= */
+
+.page,
+.learning-page,
+.roadmap-page {
+    width: 92%;
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    padding:
+        55px 0 75px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height:
+        calc(100vh - 78px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 50px 20px;
+}
+
+
+.hero-content {
+    width: 100%;
+
+    max-width: 950px;
+
+    text-align: center;
+}
+
+
+.hero h1 {
+    font-size: 52px;
+
+    line-height: 1.2;
+
+    margin-bottom: 20px;
+}
+
+
+.hero h1 span {
+    color: #00d9ff;
+}
+
+
+.hero p {
+    max-width: 750px;
+
+    margin: auto;
+
+    color: #9fb0c8;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
+
+.hero-buttons {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+
+.primary-btn,
+.secondary-btn {
+    min-width: 180px;
+
+    min-height: 48px;
+
+    padding: 0 22px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition:
+        all 0.25s ease;
+}
+
+
+.primary-btn {
+    color: #06152d;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00d9ff,
+            #008cff
+        );
+}
+
+
+.primary-btn:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 12px 28px
+        rgba(0,217,255,0.25);
+}
+
+
+.secondary-btn {
+    color: white;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.18);
+}
+
+
+.secondary-btn:hover {
+    color: #00d9ff;
+
+    border-color: #00d9ff;
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* =========================================================
+   BADGE / TAG
+========================================================= */
+
+.tag,
+.heading-badge,
+.roadmap-badge {
+    display: inline-block;
+
+    padding:
+        9px 18px;
+
+    margin-bottom: 18px;
+
+    color: #00d9ff;
+
+    background:
+        rgba(0,217,255,0.08);
+
+    border:
+        1px solid
+        rgba(0,217,255,0.25);
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   HEADINGS
+========================================================= */
+
+.heading,
+.roadmap-heading {
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+
+.heading h1,
+.roadmap-heading h1 {
+    color: white;
+
+    font-size: 42px;
+
+    margin-bottom: 12px;
+}
+
+
+.heading h2,
+.roadmap-heading h2 {
+    color: #00d9ff;
+
+    font-size: 26px;
+
+    margin-bottom: 12px;
+}
+
+
+.heading p,
+.roadmap-heading p {
+    max-width: 720px;
+
+    margin: auto;
+
+    color: #9fb0c8;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+.career-name {
+    color: #00d9ff;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
+.dashboard {
+    width: 92%;
+
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 45px;
+
+    text-align: center;
+
+    background:
+        rgba(255,255,255,0.045);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,0.25);
+}
+
+
+.dashboard h1 {
+    font-size: 38px;
+
+    margin-bottom: 15px;
+}
+
+
+.dashboard p {
+    color: #9fb0c8;
+
+    font-size: 16px;
+
+    margin-bottom: 28px;
+}
+
+
+.dashboard button {
+    min-height: 48px;
+
+    padding:
+        0 25px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    color: #06152d;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00d9ff,
+            #008cff
+        );
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition: 0.25s;
+}
+
+
+.dashboard button:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,217,255,0.25);
+}
+
+
+/* =========================================================
+   COURSE GRID
+========================================================= */
+
+.course-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+/* =========================================================
+   COURSE CARD
+========================================================= */
+
+.course-card {
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 25px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    border-radius: 18px;
+
+    transition:
+        all 0.3s ease;
+}
+
+
+.course-card:hover {
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(0,217,255,0.35);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,0.20);
+}
+
+
+/* =========================================================
+   COURSE ICON
+========================================================= */
+
+.course-icon {
+    width: 55px;
+
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(0,217,255,0.08);
+
+    font-size: 27px;
+}
+
+
+/* =========================================================
+   COURSE TITLE
+========================================================= */
+
+.course-card h2 {
+    color: white;
+
+    font-size: 20px;
+
+    line-height: 1.4;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   COURSE INFO
+========================================================= */
+
+.course-info {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 15px;
+}
+
+
+.badge {
+    padding:
+        6px 10px;
+
+    border-radius: 7px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    color: #b8c8dc;
+
+    font-size: 12px;
+}
+
+
+.level {
+    color: #00d9ff;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.description {
+    color: #9fb0c8;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin-bottom: 22px;
+
+    flex-grow: 1;
+}
+
+
+/* =========================================================
+   START LEARNING
+========================================================= */
+
+.start-btn {
+    width: 100%;
+
+    min-height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    color: #06152d;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00d9ff,
+            #00a8ff
+        );
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        all 0.25s ease;
+}
+
+
+.start-btn:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,217,255,0.20);
+}
+
+
+/* =========================================================
+   EMPTY MESSAGE
+========================================================= */
+
+.empty {
+    text-align: center;
+
+    padding: 70px 20px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    border-radius: 18px;
+}
+
+
+.empty-icon {
+    font-size: 50px;
+
+    margin-bottom: 15px;
+}
+
+
+.empty h2 {
+    margin-bottom: 10px;
+}
+
+
+.empty p {
+    color: #9fb0c8;
+}
+
+
+/* =========================================================
+   BOTTOM ACTIONS
+========================================================= */
+
+.bottom-actions,
+.roadmap-buttons {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 45px;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-btn,
+.back-button,
+.secondary-button {
+    min-width: 190px;
+
+    min-height: 48px;
+
+    padding:
+        0 22px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    color: white;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.18);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition:
+        all 0.25s ease;
+}
+
+
+.back-btn:hover,
+.back-button:hover,
+.secondary-button:hover {
+    color: #00d9ff;
+
+    border-color:
+        #00d9ff;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   LEARNING ROADMAP BUTTON
+========================================================= */
+
+.roadmap-btn,
+.roadmap-button,
+.primary-button {
+    min-width: 190px;
+
+    min-height: 48px;
+
+    padding:
+        0 22px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    color: #06152d;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00d9ff,
+            #008cff
+        );
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition:
+        all 0.25s ease;
+}
+
+
+.roadmap-btn:hover,
+.roadmap-button:hover,
+.primary-button:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 10px 24px
+        rgba(0,217,255,0.22);
+}
+
+
+/* =========================================================
+   COURSE LEARNING PAGE
+========================================================= */
+
+.learning-page {
+    max-width: 1050px;
+}
+
+
+/* =========================================================
+   COURSE INFORMATION BOXES
+========================================================= */
+
+.course-info {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 16px;
+
+    margin-bottom: 30px;
+}
+
+
+.info-box {
+    padding: 21px;
+
+    text-align: center;
+
+    background:
+        rgba(255,255,255,0.045);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    border-radius: 15px;
+
+    transition: 0.25s;
+}
+
+
+.info-box:hover {
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(0,217,255,0.25);
+}
+
+
+.info-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #00d9ff;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.info-value {
+    color: #dce8f7;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   DESCRIPTION CARD
+========================================================= */
+
+.description-card {
+    padding: 25px;
+
+    margin-bottom: 30px;
+
+    background:
+        rgba(255,255,255,0.045);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    border-radius: 16px;
+}
+
+
+.description-card h2 {
+    margin-bottom: 10px;
+
+    font-size: 20px;
+}
+
+
+.description-card p {
+    color: #9fb0c8;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   PROGRESS CARD
+========================================================= */
+
+.progress-card,
+.roadmap-progress-card {
+    padding: 27px;
+
+    margin-bottom: 35px;
+
+    background:
+        rgba(255,255,255,0.055);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,0.20);
+}
+
+
+.progress-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 18px;
+}
+
+
+.progress-header h2,
+.progress-header h3 {
+    margin-bottom: 5px;
+
+    font-size: 21px;
+}
+
+
+.progress-header p {
+    color: #8296ad;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   PERCENTAGE
+========================================================= */
+
+.percentage,
+.percentage-box {
+    min-width: 75px;
+
+    padding:
+        9px 13px;
+
+    text-align: center;
+
+    color: #00d9ff;
+
+    background:
+        rgba(0,217,255,0.08);
+
+    border:
+        1px solid
+        rgba(0,217,255,0.25);
+
+    border-radius: 10px;
+
+    font-size: 19px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   PROGRESS TRACK
+========================================================= */
+
+.progress-track,
+.progress-container {
+    width: 100%;
+
+    height: 13px;
+
+    background: #1a2f4c;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   PROGRESS FILL
+========================================================= */
+
+.progress-fill,
+.progress-bar {
+    width: 0%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00d9ff,
+            #008cff
+        );
+
+    border-radius: 20px;
+
+    transition:
+        width 0.5s ease;
+}
+
+
+.progress-text,
+.progress-status {
+    margin-top: 12px;
+
+    color: #9fb0c8;
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   LEARNING HEADING
+========================================================= */
+
+.learning-heading,
+.section-title {
+    margin-bottom: 22px;
+}
+
+
+.learning-heading h2,
+.section-title h2 {
+    margin-bottom: 7px;
+
+    color: white;
+
+    font-size: 27px;
+}
+
+
+.learning-heading p,
+.section-title p {
+    color: #8296ad;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   LESSON
+========================================================= */
+
+.lesson {
+    width: 100%;
+
+    min-height: 100px;
+
+    margin-bottom: 14px;
+
+    padding: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    background:
+        rgba(255,255,255,0.045);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    border-radius: 15px;
+
+    transition:
+        all 0.25s ease;
+}
+
+
+.lesson:hover {
+    transform:
+        translateX(3px);
+
+    background:
+        rgba(0,217,255,0.045);
+
+    border-color:
+        rgba(0,217,255,0.30);
+}
+
+
+/* =========================================================
+   LESSON NUMBER
+========================================================= */
+
+.lesson-number {
+    width: 44px;
+
+    height: 44px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #00d9ff;
+
+    background:
+        rgba(0,217,255,0.08);
+
+    border:
+        1px solid
+        rgba(0,217,255,0.25);
+
+    border-radius: 50%;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   LESSON CONTENT
+========================================================= */
+
+.lesson-content {
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.lesson-content h3 {
+    margin-bottom: 6px;
+
+    color: #edf4fc;
+
+    font-size: 16px;
+
+    line-height: 1.4;
+}
+
+
+.lesson-content p {
+    color: #8296ad;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   LESSON ACTIONS
+========================================================= */
+
+.lesson-actions {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+}
+
+
+.lesson-button {
+    min-width: 135px;
+
+    min-height: 40px;
+
+    padding:
+        0 14px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 8px;
+
+    color: #06152d;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00d9ff,
+            #00a8ff
+        );
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.lesson-button:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 7px 18px
+        rgba(0,217,255,0.20);
+}
+
+
+/* =========================================================
+   COMPLETE BUTTON
+========================================================= */
+
+.complete-button {
+    background:
+        linear-gradient(
+            135deg,
+            #63efb8,
+            #20c997
+        );
+}
+
+
+.complete-button:hover {
+    box-shadow:
+        0 7px 18px
+        rgba(32,201,151,0.20);
+}
+
+
+/* =========================================================
+   COMPLETED LESSON
+========================================================= */
+
+.lesson.completed,
+.roadmap-step.completed {
+    background:
+        rgba(99,239,184,0.055);
+
+    border-color:
+        rgba(99,239,184,0.28);
+}
+
+
+.lesson.completed .lesson-number {
+    color: #06152d;
+
+    background: #63efb8;
+
+    border-color: #63efb8;
+}
+
+
+.lesson.completed .lesson-content h3 {
+    color: #63efb8;
+
+    text-decoration:
+        line-through;
+}
+
+
+/* =========================================================
+   COMPLETION CARD
+========================================================= */
+
+.completion-card {
+    display: none;
+
+    margin-top: 30px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(99,239,184,0.10),
+            rgba(0,217,255,0.07)
+        );
+
+    border:
+        1px solid
+        rgba(99,239,184,0.30);
+
+    border-radius: 17px;
+}
+
+
+.completion-card.show {
+    display: block;
+}
+
+
+.completion-icon {
+    margin-bottom: 10px;
+
+    font-size: 45px;
+}
+
+
+.completion-card h2 {
+    margin-bottom: 9px;
+
+    color: #63efb8;
+
+    font-size: 25px;
+}
+
+
+.completion-card p {
+    color: #9fb0c8;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   LEARNING ROADMAP
+========================================================= */
+
+.roadmap-list {
+    position: relative;
+
+    width: 100%;
+
+    padding-left: 55px;
+}
+
+
+.roadmap-list::before {
+    content: "";
+
+    position: absolute;
+
+    left: 18px;
+
+    top: 20px;
+
+    bottom: 20px;
+
+    width: 2px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #00d9ff,
+            rgba(0,217,255,0.08)
+        );
+}
+
+
+/* =========================================================
+   ROADMAP STEP
+========================================================= */
+
+.roadmap-step {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 90px;
+
+    margin-bottom: 18px;
+
+    padding:
+        18px 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+        rgba(255,255,255,0.045);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    border-radius: 15px;
+
+    transition:
+        all 0.25s ease;
+}
+
+
+.roadmap-step:hover {
+    transform:
+        translateX(5px);
+
+    background:
+        rgba(0,217,255,0.055);
+
+    border-color:
+        rgba(0,217,255,0.30);
+}
+
+
+/* =========================================================
+   ROADMAP NUMBER
+========================================================= */
+
+.step-number {
+    position: absolute;
+
+    left: -55px;
+
+    width: 38px;
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #00d9ff;
+
+    background: #07172f;
+
+    border:
+        2px solid
+        #00d9ff;
+
+    border-radius: 50%;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   ROADMAP CONTENT
+========================================================= */
+
+.step-content {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+}
+
+
+.status-icon {
+    width: 43px;
+
+    height: 43px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    font-size: 18px;
+}
+
+
+.step-details {
+    flex: 1;
+}
+
+
+.step-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #edf4fc;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    line-height: 1.4;
+}
+
+
+.step-status {
+    color: #8296ad;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   ROADMAP STEP BUTTON
+========================================================= */
+
+.step-button {
+    min-width: 135px;
+
+    min-height: 40px;
+
+    padding:
+        0 15px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #06152d;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00d9ff,
+            #008cff
+        );
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition: 0.25s;
+}
+
+
+.step-button:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 18px
+        rgba(0,217,255,0.20);
+}
+
+
+/* =========================================================
+   COMPLETED ROADMAP STEP
+========================================================= */
+
+.roadmap-step.completed .step-number {
+    color: #06152d;
+
+    background: #63efb8;
+
+    border-color: #63efb8;
+}
+
+
+.roadmap-step.completed .status-icon {
+    color: #06152d;
+
+    background: #63efb8;
+
+    border-color: #63efb8;
+}
+
+
+.roadmap-step.completed .step-label {
+    color: #63efb8;
+
+    text-decoration:
+        line-through;
+}
+
+
+.roadmap-step.completed .step-status {
+    color: #63efb8;
+}
+
+
+/* =========================================================
+   COMPLETED BADGE
+========================================================= */
+
+.completed-badge {
+    min-width: 100px;
+
+    padding:
+        8px 12px;
+
+    color: #63efb8;
+
+    background:
+        rgba(99,239,184,0.08);
+
+    border:
+        1px solid
+        rgba(99,239,184,0.25);
+
+    border-radius: 8px;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   AUTO MESSAGE
+========================================================= */
+
+.auto-message {
+    margin-top: 10px;
+
+    color: #63efb8;
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   ROADMAP LOGOUT
+========================================================= */
+
+.roadmap-logout {
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 28px;
+
+    margin-bottom: 10px;
+}
+
+
+.roadmap-logout a {
+    min-width: 150px;
+
+    min-height: 46px;
+
+    padding:
+        0 24px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #ffb0b0;
+
+    background:
+        rgba(255,70,70,0.08);
+
+    border:
+        1px solid
+        rgba(255,100,100,0.35);
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    transition:
+        all 0.25s ease;
+}
+
+
+.roadmap-logout a:hover {
+    color: white;
+
+    background:
+        rgba(255,70,70,0.18);
+
+    border-color:
+        rgba(255,120,120,0.65);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   LOGIN / REGISTER
+========================================================= */
+
+.auth-page {
+    min-height:
+        calc(100vh - 78px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 40px 20px;
+}
+
+
+.auth-container {
+    width: 100%;
+
+    max-width: 450px;
+
+    padding: 35px;
+
+    background:
+        rgba(255,255,255,0.045);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,0.30);
+}
+
+
+.auth-container h1 {
+    text-align: center;
+
+    margin-bottom: 10px;
+
+    font-size: 30px;
+}
+
+
+.auth-container p {
+    text-align: center;
+
+    color: #9fb0c8;
+
+    margin-bottom: 25px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #dce8f7;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    min-height: 48px;
+
+    padding:
+        0 14px;
+
+    color: #06152d;
+
+    background: #edf4fc;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    transition: 0.25s;
+}
+
+
+.form-group textarea {
+    padding-top: 13px;
+
+    min-height: 110px;
+
+    resize: vertical;
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color:
+        #00d9ff;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(0,217,255,0.10);
+}
+
+
+/* =========================================================
+   AUTH BUTTON
+========================================================= */
+
+.auth-button {
+    width: 100%;
+
+    min-height: 48px;
+
+    margin-top: 5px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    color: #06152d;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00d9ff,
+            #008cff
+        );
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    transition: 0.25s;
+}
+
+
+.auth-button:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 24px
+        rgba(0,217,255,0.22);
+}
+
+
+/* =========================================================
+   AUTH FOOTER
+========================================================= */
+
+.auth-footer {
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: #8296ad;
+
+    font-size: 14px;
+}
+
+
+.auth-footer a {
+    color: #00d9ff;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    width: 100%;
+
+    padding: 27px;
+
+    color: #72839a;
+
+    background: #050f22;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   RESPONSIVE - 900px
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .course-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    header,
+    .main-header {
+        padding:
+            18px 25px;
+    }
+
+
+    .hero h1 {
+        font-size: 44px;
+    }
+
+
+    .lesson {
+        align-items: flex-start;
+
+        flex-wrap: wrap;
+    }
+
+
+    .lesson-actions {
+        width: 100%;
+
+        justify-content: flex-start;
+
+        padding-left: 62px;
+    }
+
+
+    .step-content {
+        flex-wrap: wrap;
+    }
+
+
+    .step-button,
+    .completed-badge {
+        margin-left: 59px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - 700px
+========================================================= */
+
+@media (max-width: 700px) {
+
+    header,
+    .main-header {
+        flex-direction: column;
+
+        gap: 15px;
+
+        padding:
+            18px 20px;
+    }
+
+
+    nav,
+    .main-nav {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+
+    .course-info {
+        grid-template-columns: 1fr;
+    }
+
+
+    .progress-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .roadmap-page,
+    .learning-page,
+    .page {
+        width: 94%;
+
+        padding:
+            40px 0 60px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - 550px
+========================================================= */
+
+@media (max-width: 550px) {
+
+    .logo {
+        font-size: 22px;
+    }
+
+
+    nav a,
+    .main-nav a {
+        min-width: 75px;
+
+        min-height: 39px;
+
+        padding:
+            0 10px;
+
+        font-size: 12px;
+    }
+
+
+    .hero {
+        padding:
+            35px 15px;
+    }
+
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+
+    .hero p {
+        font-size: 14px;
+    }
+
+
+    .heading h1,
+    .roadmap-heading h1 {
+        font-size: 30px;
+    }
+
+
+    .heading h2,
+    .roadmap-heading h2 {
+        font-size: 22px;
+    }
+
+
+    .heading p,
+    .roadmap-heading p {
+        font-size: 14px;
+    }
+
+
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .dashboard {
+        padding: 25px 18px;
+    }
+
+
+    .dashboard h1 {
+        font-size: 28px;
+    }
+
+
+    .progress-card,
+    .roadmap-progress-card {
+        padding: 20px;
+    }
+
+
+    .lesson {
+        padding: 17px;
+
+        gap: 13px;
+    }
+
+
+    .lesson-number {
+        width: 38px;
+
+        height: 38px;
+    }
+
+
+    .lesson-actions {
+        width: 100%;
+
+        padding-left: 0;
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .lesson-button {
+        width: 100%;
+    }
+
+
+    .roadmap-list {
+        padding-left: 42px;
+    }
+
+
+    .roadmap-list::before {
+        left: 12px;
+    }
+
+
+    .step-number {
+        left: -42px;
+
+        width: 32px;
+
+        height: 32px;
+
+        font-size: 12px;
+    }
+
+
+    .roadmap-step {
+        padding: 17px;
+    }
+
+
+    .step-label {
+        font-size: 15px;
+    }
+
+
+    .step-button,
+    .completed-badge {
+        width: 100%;
+
+        margin-left: 0;
+    }
+
+
+    .bottom-actions,
+    .roadmap-buttons,
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+
+    .back-btn,
+    .roadmap-btn,
+    .back-button,
+    .roadmap-button,
+    .primary-button,
+    .secondary-button {
+        width: 100%;
+    }
+
+
+    .auth-container {
+        padding: 25px 20px;
+    }
+
+}

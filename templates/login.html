@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Login | SmartCourse</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+
+        /* =====================================================
+           LOGIN PAGE
+        ===================================================== */
+
+        body.login-page {
+
+            min-height: 100vh;
+
+            margin: 0;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background:
+                linear-gradient(
+                    rgba(3, 10, 25, 0.88),
+                    rgba(3, 10, 25, 0.88)
+                ),
+                url("../images/background.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-attachment: fixed;
+
+            color: white;
+
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .login-header {
+
+            width: 100%;
+
+            min-height: 75px;
+
+            padding: 0 6%;
+
+            box-sizing: border-box;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #09245a,
+                    #0b3478
+                );
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.12);
+
+        }
+
+
+        .login-logo {
+
+            color: white;
+
+            font-size: 26px;
+
+            font-weight: 700;
+
+        }
+
+
+        .login-logo span {
+
+            color: #00d9ff;
+
+        }
+
+
+        .login-home {
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 10px 18px;
+
+            border-radius: 9px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.20);
+
+            transition: .2s;
+
+        }
+
+
+        .login-home:hover {
+
+            color: #00d9ff;
+
+            border-color: #00d9ff;
+
+            background:
+                rgba(0,217,255,0.08);
+
+        }
+
+
+        /* =====================================================
+           LOGIN WRAPPER
+        ===================================================== */
+
+        .login-wrapper {
+
+            min-height:
+                calc(100vh - 75px);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 40px 20px;
+
+            box-sizing: border-box;
+
+        }
+
+
+        /* =====================================================
+           LOGIN CARD
+        ===================================================== */
+
+        .login-card {
+
+            width: 100%;
+
+            max-width: 430px;
+
+            padding: 42px;
+
+            box-sizing: border-box;
+
+            background:
+                rgba(255,255,255,0.07);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.15);
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 20px 50px
+                rgba(0,0,0,0.35);
+
+            backdrop-filter:
+                blur(14px);
+
+            animation:
+                loginAppear .6s ease;
+
+        }
+
+
+        @keyframes loginAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(25px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           LOGIN ICON
+        ===================================================== */
+
+        .login-icon {
+
+            width: 70px;
+
+            height: 70px;
+
+            margin:
+                0 auto 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(0,217,255,0.10);
+
+            border:
+                1px solid
+                rgba(0,217,255,0.30);
+
+            font-size: 32px;
+
+        }
+
+
+        /* =====================================================
+           TITLE
+        ===================================================== */
+
+        .login-card h1 {
+
+            margin: 0;
+
+            color: white;
+
+            text-align: center;
+
+            font-size: 32px;
+
+        }
+
+
+        .login-subtitle {
+
+            margin:
+                10px 0 30px;
+
+            color: #9eafc4;
+
+            text-align: center;
+
+            font-size: 15px;
+
+        }
+
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        .login-form {
+
+            margin: 0;
+
+        }
+
+
+        .input-group {
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .input-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #dce8f5;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+        }
+
+
+        .input-wrapper {
+
+            position: relative;
+
+            width: 100%;
+
+        }
+
+
+        /* =====================================================
+           INPUT BOX
+        ===================================================== */
+
+        .input-group input {
+
+            width: 100%;
+
+            height: 50px;
+
+            padding:
+                0 50px 0 16px;
+
+            box-sizing: border-box;
+
+            color: #111827;
+
+            background: #eef4ff;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.16);
+
+            border-radius: 10px;
+
+            outline: none;
+
+            font-size: 16px;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            transition: .2s;
+
+        }
+
+
+        .input-group input::placeholder {
+
+            color: #718096;
+
+        }
+
+
+        .input-group input:focus {
+
+            border-color:
+                #00d9ff;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(0,217,255,0.12);
+
+        }
+
+
+        /* =====================================================
+           PASSWORD EYE BUTTON
+        ===================================================== */
+
+        .show-password {
+
+            position: absolute !important;
+
+            right: 10px !important;
+
+            top: 50% !important;
+
+            transform:
+                translateY(-50%) !important;
+
+            width: 34px !important;
+
+            height: 34px !important;
+
+            padding: 0 !important;
+
+            margin: 0 !important;
+
+            display: flex !important;
+
+            align-items: center !important;
+
+            justify-content: center !important;
+
+            color: #64748b !important;
+
+            background:
+                transparent !important;
+
+            border: none !important;
+
+            box-shadow: none !important;
+
+            font-size: 17px !important;
+
+            line-height: 1 !important;
+
+            cursor: pointer !important;
+
+            z-index: 5 !important;
+
+        }
+
+
+        .show-password:hover {
+
+            color: #008cff !important;
+
+            background:
+                transparent !important;
+
+            border: none !important;
+
+            transform:
+                translateY(-50%) !important;
+
+            box-shadow: none !important;
+
+        }
+
+
+        /* =====================================================
+           LOGIN BUTTON
+        ===================================================== */
+
+        .login-submit {
+
+            width: 100% !important;
+
+            height: 50px !important;
+
+            margin-top: 8px !important;
+
+            padding: 0 !important;
+
+            border: none !important;
+
+            border-radius: 10px !important;
+
+            color: white !important;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #00c3ff,
+                    #008cff
+                ) !important;
+
+            font-size: 16px !important;
+
+            font-weight: 700 !important;
+
+            cursor: pointer !important;
+
+            box-shadow:
+                0 7px 20px
+                rgba(0,195,255,0.18) !important;
+
+            transition: .2s !important;
+
+        }
+
+
+        .login-submit:hover {
+
+            transform:
+                translateY(-2px) !important;
+
+            box-shadow:
+                0 10px 25px
+                rgba(0,195,255,0.30) !important;
+
+        }
+
+
+        /* =====================================================
+           REGISTER LINK
+        ===================================================== */
+
+        .register-text {
+
+            margin-top: 25px;
+
+            color: #899bb1;
+
+            text-align: center;
+
+            font-size: 14px;
+
+        }
+
+
+        .register-text a {
+
+            color: #00d9ff;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+        }
+
+
+        .register-text a:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .login-footer {
+
+            margin-top: 25px;
+
+            color: #63758c;
+
+            text-align: center;
+
+            font-size: 12px;
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media(max-width: 600px) {
+
+            .login-header {
+
+                padding:
+                    0 20px;
+
+            }
+
+
+            .login-logo {
+
+                font-size: 21px;
+
+            }
+
+
+            .login-home {
+
+                padding:
+                    8px 13px;
+
+                font-size: 13px;
+
+            }
+
+
+            .login-card {
+
+                padding:
+                    30px 22px;
+
+            }
+
+
+            .login-card h1 {
+
+                font-size: 27px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="login-page">
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="login-header">
+
+
+    <div class="login-logo">
+
+        🎓 Smart<span>Course</span>
+
+    </div>
+
+
+    <a href="/"
+       class="login-home">
+
+        ← Home
+
+    </a>
+
+
+</header>
+
+
+<!-- =====================================================
+     LOGIN CONTENT
+===================================================== -->
+
+<div class="login-wrapper">
+
+
+    <div class="login-card">
+
+
+        <div class="login-icon">
+
+            🔐
+
+        </div>
+
+
+        <h1>
+
+            Welcome Back
+
+        </h1>
+
+
+        <p class="login-subtitle">
+
+            Login to continue your learning journey
+
+        </p>
+
+
+        <form method="POST"
+              action="/login"
+              class="login-form">
+
+
+            <!-- =================================================
+                 EMAIL
+            ================================================== -->
+
+            <div class="input-group">
+
+
+                <label for="email">
+
+                    Email Address
+
+                </label>
+
+
+                <div class="input-wrapper">
+
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                        autocomplete="email">
+
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 PASSWORD
+            ================================================== -->
+
+            <div class="input-group">
+
+
+                <label for="password">
+
+                    Password
+
+                </label>
+
+
+                <div class="input-wrapper">
+
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                        autocomplete="current-password">
+
+
+                    <button
+                        type="button"
+                        class="show-password"
+                        onclick="togglePassword()"
+                        aria-label="Show password">
+
+                        👁️
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 LOGIN
+            ================================================== -->
+
+            <button
+                type="submit"
+                class="login-submit">
+
+                Login →
+
+            </button>
+
+
+        </form>
+
+
+        <!-- =================================================
+             REGISTER LINK
+        ================================================== -->
+
+        <p class="register-text">
+
+            Don't have an account?
+
+            <a href="/register">
+
+                Create an account
+
+            </a>
+
+        </p>
+
+
+        <div class="login-footer">
+
+            Smart Course Recommendation System
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+function togglePassword() {
+
+
+    const password =
+        document.getElementById(
+            "password"
+        );
+
+
+    const button =
+        document.querySelector(
+            ".show-password"
+        );
+
+
+    if (
+        password.type === "password"
+    ) {
+
+        password.type = "text";
+
+        button.innerText =
+            "🙈";
+
+    }
+
+    else {
+
+        password.type =
+            "password";
+
+        button.innerText =
+            "👁️";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>

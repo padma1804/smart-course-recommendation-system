@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {{ course['Course'] }} | SmartCourse
+    </title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    rgba(3,10,25,0.97),
+                    rgba(3,10,25,0.97)
+                );
+
+            overflow-x: hidden;
+        }
+
+
+        /* ================= HEADER ================= */
+
+        header {
+
+            min-height: 80px;
+
+            padding:
+                0 6%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #09245a,
+                    #0b3478
+                );
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.12);
+        }
+
+
+        .logo {
+
+            color: white;
+
+            font-size: 26px;
+
+            font-weight: 700;
+        }
+
+
+        .logo span {
+
+            color: #00d9ff;
+        }
+
+
+        nav {
+
+            display: flex;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+        }
+
+
+        nav a {
+
+            padding:
+                10px 15px;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+
+        nav a:hover {
+
+            color: #00d9ff;
+
+            background:
+                rgba(0,217,255,0.08);
+        }
+
+
+        /* ================= PAGE ================= */
+
+        .learning-page {
+
+            width: 92%;
+
+            max-width: 1050px;
+
+            margin: auto;
+
+            padding:
+                55px 0 70px;
+        }
+
+
+        /* ================= HEADING ================= */
+
+        .heading {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+
+        .badge {
+
+            display: inline-block;
+
+            padding:
+                9px 18px;
+
+            margin-bottom: 15px;
+
+            color: #00d9ff;
+
+            background:
+                rgba(0,217,255,0.08);
+
+            border:
+                1px solid
+                rgba(0,217,255,0.25);
+
+            border-radius: 25px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+
+        .heading h1 {
+
+            margin-bottom: 12px;
+
+            color: white;
+
+            font-size: 40px;
+        }
+
+
+        .heading p {
+
+            max-width: 750px;
+
+            margin: auto;
+
+            color: #9fb0c8;
+
+            font-size: 15px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================= INFO ================= */
+
+        .course-info {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .info-box {
+
+            padding: 20px;
+
+            text-align: center;
+
+            background:
+                rgba(255,255,255,0.045);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.10);
+
+            border-radius: 14px;
+        }
+
+
+        .info-label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #00d9ff;
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+
+        .info-value {
+
+            color: #dce8f7;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+
+        /* ================= DESCRIPTION ================= */
+
+        .description {
+
+            padding: 24px;
+
+            margin-bottom: 25px;
+
+            background:
+                rgba(255,255,255,0.045);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.10);
+
+            border-radius: 15px;
+        }
+
+
+        .description h2 {
+
+            margin-bottom: 10px;
+
+            font-size: 20px;
+        }
+
+
+        .description p {
+
+            color: #9fb0c8;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================= PROGRESS ================= */
+
+        .progress-card {
+
+            padding: 25px;
+
+            margin-bottom: 35px;
+
+            background:
+                rgba(255,255,255,0.055);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.12);
+
+            border-radius: 16px;
+        }
+
+
+        .progress-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 16px;
+        }
+
+
+        .progress-header h2 {
+
+            font-size: 20px;
+        }
+
+
+        .progress-header p {
+
+            margin-top: 5px;
+
+            color: #8296ad;
+
+            font-size: 13px;
+        }
+
+
+        .percentage {
+
+            min-width: 70px;
+
+            padding:
+                9px 12px;
+
+            color: #00d9ff;
+
+            background:
+                rgba(0,217,255,0.08);
+
+            border:
+                1px solid
+                rgba(0,217,255,0.25);
+
+            border-radius: 10px;
+
+            text-align: center;
+
+            font-size: 18px;
+
+            font-weight: 700;
+        }
+
+
+        .progress-track {
+
+            width: 100%;
+
+            height: 12px;
+
+            background: #1a2f4c;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+        }
+
+
+        .progress-fill {
+
+            width: 0%;
+
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #00d9ff,
+                    #008cff
+                );
+
+            border-radius: 20px;
+
+            transition:
+                width 0.5s ease;
+        }
+
+
+        .progress-text {
+
+            margin-top: 10px;
+
+            color: #9fb0c8;
+
+            text-align: center;
+
+            font-size: 13px;
+        }
+
+
+        /* ================= LESSON HEADING ================= */
+
+        .learning-heading {
+
+            margin-bottom: 20px;
+        }
+
+
+        .learning-heading h2 {
+
+            margin-bottom: 7px;
+
+            font-size: 27px;
+        }
+
+
+        .learning-heading p {
+
+            color: #8296ad;
+
+            font-size: 14px;
+        }
+
+
+        /* ================= LESSON ================= */
+
+        .lesson {
+
+            min-height: 100px;
+
+            margin-bottom: 14px;
+
+            padding: 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 18px;
+
+            background:
+                rgba(255,255,255,0.045);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.10);
+
+            border-radius: 15px;
+
+            transition:
+                0.25s ease;
+        }
+
+
+        .lesson:hover {
+
+            border-color:
+                rgba(0,217,255,0.30);
+
+            transform:
+                translateX(3px);
+        }
+
+
+        .lesson-number {
+
+            width: 44px;
+
+            height: 44px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #00d9ff;
+
+            background:
+                rgba(0,217,255,0.08);
+
+            border:
+                1px solid
+                rgba(0,217,255,0.25);
+
+            border-radius: 50%;
+
+            font-weight: 700;
+        }
+
+
+        .lesson-content {
+
+            flex: 1;
+        }
+
+
+        .lesson-content h3 {
+
+            margin-bottom: 6px;
+
+            color: #edf4fc;
+
+            font-size: 16px;
+        }
+
+
+        .lesson-content p {
+
+            color: #8296ad;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+
+        /* ================= ACTIONS ================= */
+
+        .lesson-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .lesson-button {
+
+            min-width: 135px;
+
+            min-height: 40px;
+
+            padding:
+                0 14px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border: none;
+
+            border-radius: 8px;
+
+            color: #06152d;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #00d9ff,
+                    #008cff
+                );
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+
+        .lesson-button:hover {
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        .complete-button {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #63efb8,
+                    #20c997
+                );
+        }
+
+
+        /* ================= COMPLETED ================= */
+
+        .lesson.completed {
+
+            background:
+                rgba(99,239,184,0.055);
+
+            border-color:
+                rgba(99,239,184,0.25);
+        }
+
+
+        .lesson.completed
+        .lesson-number {
+
+            color: #06152d;
+
+            background: #63efb8;
+
+            border-color: #63efb8;
+        }
+
+
+        .lesson.completed
+        .lesson-content h3 {
+
+            color: #63efb8;
+
+            text-decoration:
+                line-through;
+        }
+
+
+        /* ================= COMPLETION ================= */
+
+        .completion-card {
+
+            display: none;
+
+            padding: 30px;
+
+            margin-top: 25px;
+
+            text-align: center;
+
+            background:
+                rgba(99,239,184,0.06);
+
+            border:
+                1px solid
+                rgba(99,239,184,0.25);
+
+            border-radius: 16px;
+        }
+
+
+        .completion-card.show {
+
+            display: block;
+        }
+
+
+        .completion-card h2 {
+
+            margin-bottom: 8px;
+
+            color: #63efb8;
+        }
+
+
+        .completion-card p {
+
+            color: #9fb0c8;
+
+            line-height: 1.6;
+        }
+
+
+        /* ================= BOTTOM ================= */
+
+        .bottom-actions {
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 14px;
+
+            margin-top: 40px;
+        }
+
+
+        .bottom-button {
+
+            min-width: 200px;
+
+            min-height: 47px;
+
+            padding:
+                0 20px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: white;
+
+            background:
+                rgba(255,255,255,0.04);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.18);
+
+            border-radius: 9px;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 700;
+        }
+
+
+        .bottom-button:hover {
+
+            color: #00d9ff;
+
+            border-color: #00d9ff;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            padding: 25px;
+
+            color: #72839a;
+
+            background: #050f22;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            text-align: center;
+
+            font-size: 13px;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media(max-width: 750px) {
+
+            header {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+                padding:
+                    18px 20px;
+            }
+
+
+            .course-info {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .lesson {
+
+                align-items: flex-start;
+
+                flex-wrap: wrap;
+            }
+
+
+            .lesson-actions {
+
+                width: 100%;
+
+                margin-left: 62px;
+            }
+
+        }
+
+
+        @media(max-width: 500px) {
+
+            .learning-page {
+
+                width: 94%;
+            }
+
+
+            .heading h1 {
+
+                font-size: 29px;
+            }
+
+
+            .progress-header {
+
+                flex-direction: column;
+
+                gap: 12px;
+
+                text-align: center;
+            }
+
+
+            .lesson {
+
+                padding: 17px;
+            }
+
+
+            .lesson-actions {
+
+                margin-left: 0;
+
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+
+            .lesson-button {
+
+                width: 100%;
+            }
+
+
+            .bottom-actions {
+
+                flex-direction: column;
+            }
+
+
+            .bottom-button {
+
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+
+        🎓 Smart<span>Course</span>
+
+    </div>
+
+
+    <nav>
+
+        <a href="/">Home</a>
+
+        <a href="/dashboard">Dashboard</a>
+
+        <a href="/recommendation">Courses</a>
+
+        <a href="/learning_roadmap">Roadmap</a>
+
+        <a href="/logout">Logout</a>
+
+    </nav>
+
+</header>
+
+
+<main class="learning-page">
+
+
+    <!-- ================= HEADING ================= -->
+
+    <section class="heading">
+
+        <div class="badge">
+
+            📖 Personalized Course Learning
+
+        </div>
+
+
+        <h1>
+
+            {{ course['Course'] }}
+
+        </h1>
+
+
+        <p>
+
+            Study each lesson and complete it when you
+            have finished learning the topic.
+
+        </p>
+
+    </section>
+
+
+    <!-- ================= COURSE INFO ================= -->
+
+    <section class="course-info">
+
+
+        <div class="info-box">
+
+            <span class="info-label">
+                ⏳ DURATION
+            </span>
+
+            <span class="info-value">
+                {{ course['Duration'] }}
+            </span>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <span class="info-label">
+                🎯 LEVEL
+            </span>
+
+            <span class="info-value">
+                {{ course['Level'] }}
+            </span>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <span class="info-label">
+                💼 CAREER
+            </span>
+
+            <span class="info-value">
+                {{ course['Career'] }}
+            </span>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- ================= DESCRIPTION ================= -->
+
+    <section class="description">
+
+        <h2>
+            📚 About This Course
+        </h2>
+
+
+        <p>
+            {{ course['Description'] }}
+        </p>
+
+    </section>
+
+
+    <!-- ================= PROGRESS ================= -->
+
+    <section class="progress-card">
+
+
+        <div class="progress-header">
+
+            <div>
+
+                <h2>
+                    📊 Course Progress
+                </h2>
+
+                <p>
+                    Complete the lessons below to update
+                    your course progress.
+                </p>
+
+            </div>
+
+
+            <div
+                class="percentage"
+                id="percentage">
+
+                0%
+
+            </div>
+
+        </div>
+
+
+        <div class="progress-track">
+
+            <div
+                class="progress-fill"
+                id="progressFill">
+
+            </div>
+
+        </div>
+
+
+        <p
+            class="progress-text"
+            id="progressText">
+
+            Loading progress...
+
+        </p>
+
+    </section>
+
+
+    <!-- ================= LESSONS ================= -->
+
+    <section>
+
+
+        <div class="learning-heading">
+
+            <h2>
+                📚 Learning Steps
+            </h2>
+
+
+            <p>
+                Study the resource and click
+                <strong>Complete Lesson</strong>
+                after finishing it.
+            </p>
+
+        </div>
+
+
+        {% for lesson in lessons %}
+
+
+        <div
+            class="lesson
+            {% if loop.index0 in completed %}
+                completed
+            {% endif %}">
+
+
+            <div class="lesson-number">
+
+                {{ loop.index }}
+
+            </div>
+
+
+            <div class="lesson-content">
+
+                <h3>
+
+                    {{ lesson }}
+
+                </h3>
+
+
+                <p>
+
+                    Study this topic using the
+                    recommended learning resource.
+
+                </p>
+
+            </div>
+
+
+            {% if loop.index0 in completed %}
+
+
+            <div class="lesson-actions">
+
+                <span
+                    class="lesson-button complete-button">
+
+                    ✓ Completed
+
+                </span>
+
+            </div>
+
+
+            {% else %}
+
+
+            <div class="lesson-actions">
+
+
+                {% if course.get('Link') %}
+
+                <a
+                    href="{{ course['Link'] }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="lesson-button">
+
+                    📖 Study Resource ↗
+
+                </a>
+
+                {% endif %}
+
+
+                <form
+                    method="POST"
+                    action="{{ url_for(
+                        'complete_lesson',
+                        course_name=course['Course'],
+                        lesson_index=loop.index0
+                    ) }}">
+
+                    <button
+                        type="submit"
+                        class="lesson-button complete-button">
+
+                        ✓ Complete Lesson
+
+                    </button>
+
+                </form>
+
+
+            </div>
+
+
+            {% endif %}
+
+
+        </div>
+
+
+        {% endfor %}
+
+
+    </section>
+
+
+    <!-- ================= COMPLETION ================= -->
+
+    <section
+        id="completionCard"
+        class="completion-card">
+
+
+        <h2>
+
+            🎉 Course Completed!
+
+        </h2>
+
+
+        <p>
+
+            Congratulations! You have completed all
+            lessons in this course.
+
+        </p>
+
+    </section>
+
+
+    <!-- ================= BOTTOM ================= -->
+
+    <div class="bottom-actions">
+
+
+        <a
+            href="/learning_roadmap"
+            class="bottom-button">
+
+            ← Back to Learning Roadmap
+
+        </a>
+
+
+        <a
+            href="/recommendation"
+            class="bottom-button">
+
+            📚 All Recommended Courses
+
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    © 2026 Smart Course Recommendation System
+
+</footer>
+
+
+<!-- ================= PROGRESS DATA ================= -->
+
+<div
+    id="courseData"
+    data-total="{{ lessons|length }}"
+    data-completed="{{ completed|length }}"
+    style="display:none;">
+
+</div>
+
+
+<script>
+
+    const courseData =
+        document.getElementById("courseData");
+
+
+    const total =
+        Number(
+            courseData.dataset.total
+        );
+
+
+    const completed =
+        Number(
+            courseData.dataset.completed
+        );
+
+
+    let percentage = 0;
+
+
+    if (total > 0) {
+
+        percentage =
+            Math.round(
+                (completed / total) * 100
+            );
+
+    }
+
+
+    if (percentage > 100) {
+
+        percentage = 100;
+
+    }
+
+
+    document.getElementById(
+        "percentage"
+    ).innerText =
+        percentage + "%";
+
+
+    document.getElementById(
+        "progressFill"
+    ).style.width =
+        percentage + "%";
+
+
+    document.getElementById(
+        "progressText"
+    ).innerText =
+        completed +
+        " of " +
+        total +
+        " lessons completed";
+
+
+    if (
+        total > 0 &&
+        completed >= total
+    ) {
+
+        document.getElementById(
+            "completionCard"
+        ).classList.add("show");
+
+    }
+
+</script>
+
+
+</body>
+
+</html>

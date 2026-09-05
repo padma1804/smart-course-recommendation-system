@@ -1,0 +1,48 @@
+Interest,Course,Duration,Career,Description,Level,Link
+Web Development,Full Stack Web Development,6 Months,Full Stack Developer,Learn HTML CSS JavaScript React Node.js and MongoDB,Intermediate,https://www.w3schools.com/whatis/
+Web Development,Frontend Development,4 Months,Frontend Developer,Learn HTML CSS Bootstrap JavaScript and React,Beginner,https://www.w3schools.com/html/
+Web Development,Backend Development,5 Months,Backend Developer,Learn Python Django Flask Node.js and SQL,Intermediate,https://www.w3schools.com/nodejs/
+Web Development,React JS,3 Months,React Developer,Build modern web applications using React JS,Intermediate,https://www.w3schools.com/react/
+Web Development,Angular Development,4 Months,Angular Developer,Learn Angular TypeScript and web application development,Intermediate,https://www.w3schools.com/angular/
+Web Development,PHP & MySQL,3 Months,PHP Developer,Develop dynamic websites using PHP and MySQL,Beginner,https://www.w3schools.com/php/
+Web Development,Django Web Development,5 Months,Django Developer,Create web applications using Python Django Framework,Intermediate,https://www.w3schools.com/django/
+Web Development,Node.js Development,4 Months,Node.js Developer,Build backend APIs using Node.js and Express,Intermediate,https://www.w3schools.com/nodejs/
+
+Artificial Intelligence,Artificial Intelligence Fundamentals,3 Months,AI Engineer,Learn the basics of Artificial Intelligence,Beginner,https://www.w3schools.com/ai/
+Artificial Intelligence,Machine Learning,6 Months,Machine Learning Engineer,Build predictive models using Python,Intermediate,https://www.w3schools.com/python/python_ml_getting_started.asp
+Artificial Intelligence,Deep Learning,6 Months,Deep Learning Engineer,Learn Neural Networks TensorFlow and Keras,Advanced,https://www.tensorflow.org/tutorials
+Artificial Intelligence,Natural Language Processing,4 Months,NLP Engineer,Develop chatbots and language models,Advanced,https://www.nltk.org/book/
+Artificial Intelligence,Computer Vision,5 Months,Computer Vision Engineer,Image processing and object detection,Advanced,https://docs.opencv.org/
+Artificial Intelligence,Generative AI,3 Months,AI Specialist,Learn ChatGPT Gemini and Generative AI concepts,Intermediate,https://www.w3schools.com/gen_ai/
+Artificial Intelligence,Prompt Engineering,2 Months,Prompt Engineer,Learn to write effective AI prompts,Beginner,https://www.w3schools.com/gen_ai/
+Artificial Intelligence,AI Projects,4 Months,AI Developer,Develop real-world Artificial Intelligence projects,Intermediate,https://www.w3schools.com/ai/
+
+Data Science,Python for Data Science,4 Months,Data Scientist,Learn Python NumPy and Pandas,Beginner,https://www.w3schools.com/datascience/
+Data Science,Data Analytics,4 Months,Data Analyst,Analyze business data using Python and SQL,Intermediate,https://www.w3schools.com/python/pandas/
+Data Science,Data Visualization,3 Months,BI Analyst,Create dashboards using Power BI and Tableau,Beginner,https://www.w3schools.com/python/matplotlib_intro.asp
+Data Science,Statistics for Data Science,3 Months,Data Scientist,Understand probability and statistics,Intermediate,https://www.w3schools.com/statistics/
+Data Science,SQL for Data Science,2 Months,Database Analyst,Learn SQL for data analysis,Beginner,https://www.w3schools.com/sql/
+Data Science,Big Data Analytics,5 Months,Big Data Engineer,Learn Hadoop Spark and Hive,Advanced,https://www.ibm.com/think/topics/big-data
+Data Science,Power BI,2 Months,BI Developer,Create professional dashboards using Power BI,Beginner,https://learn.microsoft.com/en-us/training/powerplatform/power-bi/
+Data Science,Tableau,2 Months,Visualization Analyst,Learn interactive data visualization using Tableau,Beginner,https://www.tableau.com/learn/training
+
+Cyber Security,Ethical Hacking,5 Months,Ethical Hacker,Learn penetration testing and ethical hacking,Intermediate,https://www.w3schools.com/cybersecurity/
+Cyber Security,Network Security,4 Months,Security Analyst,Protect networks from cyber attacks,Intermediate,https://www.w3schools.com/cybersecurity/
+Cyber Security,Kali Linux,2 Months,Security Engineer,Use Kali Linux tools for security testing,Beginner,https://www.kali.org/docs/
+Cyber Security,Cryptography,3 Months,Cryptography Specialist,Learn encryption and secure communication,Intermediate,https://www.cloudflare.com/learning/cryptography/what-is-cryptography/
+Cyber Security,Penetration Testing,4 Months,Penetration Tester,Perform vulnerability assessments and penetration testing,Advanced,https://owasp.org/www-project-web-security-testing-guide/
+
+Cloud Computing,AWS Cloud Computing,4 Months,Cloud Engineer,Learn Amazon Web Services cloud platform,Intermediate,https://www.w3schools.com/aws/aws_cloudessentials_cloudcomputing.php
+Cloud Computing,Microsoft Azure,4 Months,Azure Administrator,Manage cloud infrastructure using Azure,Intermediate,https://learn.microsoft.com/en-us/training/azure/
+Cloud Computing,Google Cloud Platform,4 Months,Cloud Architect,Develop applications using Google Cloud Platform,Intermediate,https://cloud.google.com/learn
+Cloud Computing,Docker & Kubernetes,5 Months,DevOps Engineer,Learn containerization and orchestration,Advanced,https://docs.docker.com/get-started/
+Cloud Computing,DevOps Fundamentals,4 Months,DevOps Engineer,Learn CI/CD Git Jenkins and Docker,Intermediate,https://www.atlassian.com/devops
+
+Software Development,Python Programming,3 Months,Software Developer,Learn Python programming from basics to advanced,Beginner,https://www.w3schools.com/python/
+Software Development,Java Programming,4 Months,Software Developer,Master Java programming and OOP concepts,Beginner,https://www.w3schools.com/java/
+Software Development,C Programming,2 Months,Software Developer,Learn C programming fundamentals,Beginner,https://www.w3schools.com/c/
+Software Development,Data Structures,3 Months,Software Developer,Understand arrays linked lists stacks and queues,Intermediate,https://www.w3schools.com/dsa/
+Software Development,Software Engineering,3 Months,Software Engineer,Learn software development life cycle,Intermediate,https://www.geeksforgeeks.org/software-engineering/software-engineering-introduction-to-software-engineering/
+Software Development,Git & GitHub,1 Month,Software Developer,Learn version control and GitHub collaboration,Beginner,https://www.w3schools.com/git/
+Software Development,Object Oriented Programming,2 Months,Software Developer,Master OOP concepts using Java and Python,Intermediate,https://www.w3schools.com/java/java_oop.asp
+Software Development,Database Management Systems,2 Months,Database Developer,Learn SQL and relational databases,Intermediate,https://www.w3schools.com/sql/

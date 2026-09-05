@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Result | SmartCourse</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #07152f;
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            padding: 20px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #07152f;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #00d9ff;
+        }
+
+        /* ================= NAVIGATION ================= */
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav a {
+            color: #dce8f7;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        nav a:hover {
+            color: #00d9ff;
+            background: rgba(0,217,255,0.08);
+        }
+
+        .logout {
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        /* ================= MAIN ================= */
+
+        .page {
+            max-width: 1050px;
+            margin: auto;
+            padding: 60px 25px 80px;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 9px 18px;
+            border-radius: 25px;
+            background: rgba(0,217,255,0.08);
+            border: 1px solid rgba(0,217,255,0.18);
+            color: #00d9ff;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .heading h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .heading p {
+            color: #9fb0c8;
+            font-size: 17px;
+        }
+
+        /* ================= RESULT CARD ================= */
+
+        .result-card {
+            background: rgba(255,255,255,0.035);
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 18px 45px rgba(0,0,0,0.15);
+        }
+
+        .result-icon {
+            font-size: 55px;
+            margin-bottom: 12px;
+        }
+
+        .result-card h2 {
+            font-size: 18px;
+            color: #9fb0c8;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .career {
+            color: #00d9ff;
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+
+        /* ================= MATCH CIRCLE ================= */
+
+        .match-circle {
+            width: 145px;
+            height: 145px;
+            border-radius: 50%;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 7px solid #00d9ff;
+            background: rgba(0,217,255,0.06);
+            box-shadow: 0 0 35px rgba(0,217,255,0.10);
+        }
+
+        .match-number {
+            font-size: 38px;
+            font-weight: 700;
+            color: #00d9ff;
+        }
+
+        .match-text {
+            color: #9fb0c8;
+            font-size: 13px;
+        }
+
+        .result-message {
+            max-width: 650px;
+            margin: 20px auto 0;
+            color: #aebdd1;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* ================= SKILLS ================= */
+
+        .skills-card {
+            background: rgba(255,255,255,0.035);
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: 18px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+
+        .section-heading {
+            text-align: center;
+            font-size: 23px;
+            margin-bottom: 28px;
+        }
+
+        .skill {
+            margin-bottom: 22px;
+        }
+
+        .skill:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 9px;
+        }
+
+        .skill-name {
+            color: #e5eef9;
+            font-weight: 600;
+        }
+
+        .skill-score {
+            color: #00d9ff;
+            font-weight: 700;
+        }
+
+        .skill-bar {
+            height: 9px;
+            background: #223653;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(
+                90deg,
+                #00d9ff,
+                #00a8ff
+            );
+            border-radius: 20px;
+            transition: width 1s ease;
+        }
+
+        /* ================= RECOMMENDATION ================= */
+
+        .info-card {
+            background: rgba(0,217,255,0.045);
+            border: 1px solid rgba(0,217,255,0.15);
+            border-radius: 18px;
+            padding: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .info-card h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+            color: #00d9ff;
+        }
+
+        .info-card p {
+            color: #aebdd1;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* ================= BUTTONS ================= */
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-width: 210px;
+            padding: 14px 23px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 700;
+            transition: 0.25s;
+        }
+
+        .primary {
+            background: linear-gradient(
+                135deg,
+                #00d9ff,
+                #00a8ff
+            );
+
+            color: #06152d;
+
+            box-shadow:
+                0 7px 20px
+                rgba(0,217,255,0.15);
+        }
+
+        .primary:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 28px
+                rgba(0,217,255,0.25);
+        }
+
+        .secondary {
+            background:
+                rgba(255,255,255,0.04);
+
+            color: white;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.18);
+        }
+
+        .secondary:hover {
+            transform: translateY(-3px);
+
+            color: #00d9ff;
+
+            border-color: #00d9ff;
+
+            background:
+                rgba(0,217,255,0.07);
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #050f22;
+            padding: 28px;
+            text-align: center;
+            color: #75869f;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 650px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .page {
+                padding: 45px 15px 60px;
+            }
+
+            .heading h1 {
+                font-size: 32px;
+            }
+
+            .result-card,
+            .skills-card {
+                padding: 25px 20px;
+            }
+
+            .career {
+                font-size: 27px;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .action-btn {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     HEADER
+================================================== -->
+
+<header>
+
+    <div class="logo">
+
+        🎓 Smart<span>Course</span>
+
+    </div>
+
+
+    <nav>
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/about">
+            About
+        </a>
+
+        <a href="/recommendation">
+            Courses
+        </a>
+
+        <a href="/dashboard">
+            Dashboard
+        </a>
+
+        <a href="/logout"
+           class="logout">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- ==================================================
+     MAIN
+================================================== -->
+
+<main class="page">
+
+
+    <!-- ================= HEADING ================= -->
+
+    <div class="heading">
+
+        <div class="tag">
+            ✨ Assessment Complete
+        </div>
+
+        <h1>
+            Your Career Recommendation
+        </h1>
+
+        <p>
+            Your result is based on the skills provided
+            in the AI assessment.
+        </p>
+
+    </div>
+
+
+    <!-- ================= CAREER RESULT ================= -->
+
+    <div class="result-card">
+
+
+        <div class="result-icon">
+            🎯
+        </div>
+
+
+        <h2>
+            Recommended Career
+        </h2>
+
+
+        <div class="career">
+
+            {{ career }}
+
+        </div>
+
+
+        <div class="match-circle">
+
+            <div class="match-number">
+
+                {{ match }}%
+
+            </div>
+
+            <div class="match-text">
+
+                Skill Match
+
+            </div>
+
+        </div>
+
+
+        <p class="result-message">
+
+            Based on your assessment performance,
+            <strong>{{ career }}</strong> is the career path
+            that best matches your current skill profile.
+
+        </p>
+
+
+    </div>
+
+
+    <!-- ================= SKILL ANALYSIS ================= -->
+
+    <div class="skills-card">
+
+
+        <h2 class="section-heading">
+
+            📊 Your Skill Analysis
+
+        </h2>
+
+
+        <!-- PROGRAMMING -->
+
+        <div class="skill">
+
+            <div class="skill-top">
+
+                <span class="skill-name">
+                    💻 Programming
+                </span>
+
+                <span class="skill-score">
+                    {{ programming }}%
+                </span>
+
+            </div>
+
+
+            <div class="skill-bar">
+
+                <div class="skill-fill"
+                     id="programmingBar"
+                     data-score="{{ programming }}">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MATHEMATICS -->
+
+        <div class="skill">
+
+            <div class="skill-top">
+
+                <span class="skill-name">
+                    📐 Mathematics
+                </span>
+
+                <span class="skill-score">
+                    {{ maths }}%
+                </span>
+
+            </div>
+
+
+            <div class="skill-bar">
+
+                <div class="skill-fill"
+                     id="mathsBar"
+                     data-score="{{ maths }}">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROBLEM SOLVING -->
+
+        <div class="skill">
+
+            <div class="skill-top">
+
+                <span class="skill-name">
+                    🧩 Problem Solving
+                </span>
+
+                <span class="skill-score">
+                    {{ problem }}%
+                </span>
+
+            </div>
+
+
+            <div class="skill-bar">
+
+                <div class="skill-fill"
+                     id="problemBar"
+                     data-score="{{ problem }}">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- COMMUNICATION -->
+
+        <div class="skill">
+
+            <div class="skill-top">
+
+                <span class="skill-name">
+                    🗣️ Communication
+                </span>
+
+                <span class="skill-score">
+                    {{ communication }}%
+                </span>
+
+            </div>
+
+
+            <div class="skill-bar">
+
+                <div class="skill-fill"
+                     id="communicationBar"
+                     data-score="{{ communication }}">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CREATIVITY -->
+
+        <div class="skill">
+
+            <div class="skill-top">
+
+                <span class="skill-name">
+                    🎨 Creativity
+                </span>
+
+                <span class="skill-score">
+                    {{ creativity }}%
+                </span>
+
+            </div>
+
+
+            <div class="skill-bar">
+
+                <div class="skill-fill"
+                     id="creativityBar"
+                     data-score="{{ creativity }}">
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ================= NEXT STEP ================= -->
+
+    <div class="info-card">
+
+
+        <h3>
+            💡 What's Next?
+        </h3>
+
+
+        <p>
+
+            Explore courses related to your recommended
+            career and follow your personalized learning
+            roadmap to develop the required skills.
+
+        </p>
+
+
+        <div class="actions">
+
+
+            <a href="{{ url_for('recommendation', career=career) }}"
+               class="action-btn primary">
+
+                📚 View Recommended Courses
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        © 2026 Smart Course Recommendation System
+    </p>
+
+</footer>
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script>
+
+function setSkillBar(id) {
+
+    const bar =
+        document.getElementById(id);
+
+    if (!bar) {
+        return;
+    }
+
+    const score =
+        Number(bar.dataset.score);
+
+    if (isNaN(score)) {
+        return;
+    }
+
+    bar.style.width =
+        score + "%";
+
+}
+
+
+/* Set progress bars */
+
+setSkillBar("programmingBar");
+
+setSkillBar("mathsBar");
+
+setSkillBar("problemBar");
+
+setSkillBar("communicationBar");
+
+setSkillBar("creativityBar");
+
+
+</script>
+
+
+</body>
+
+</html>
