@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,347 +19,835 @@
             box-sizing: border-box;
         }
 
+
+        /* ================= BODY ================= */
+
         body {
+
             font-family: Arial, sans-serif;
+
             color: white;
 
             background:
-                linear-gradient(rgba(0, 8, 20, 0.80),
-                                rgba(0, 8, 20, 0.90)),
+                linear-gradient(
+                    rgba(0, 8, 20, 0.82),
+                    rgba(0, 8, 20, 0.94)
+                ),
                 url("{{ url_for('static', filename='images/background.jpg') }}");
 
             background-size: cover;
+
             background-position: center;
+
             background-attachment: fixed;
 
             min-height: 100vh;
+
         }
 
-        /* HEADER */
+
+        /* ================= HEADER ================= */
 
         header {
-            background: #163d82;
-            padding: 20px;
-            text-align: center;
+
+            padding: 22px 50px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            background: rgba(5, 25, 60, 0.92);
+
+            border-bottom:
+                1px solid rgba(0, 217, 255, 0.3);
+
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, 0.3);
+
         }
+
 
         header h1 {
-            font-size: 30px;
+
+            font-size: 25px;
+
             color: white;
+
         }
 
-        /* NAVIGATION */
+
+        /* ================= NAVIGATION ================= */
 
         nav {
-            background: #1450a3;
-            padding: 18px;
-            text-align: center;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+
         }
+
 
         nav a {
+
             color: white;
+
             text-decoration: none;
-            font-size: 20px;
+
+            font-size: 16px;
+
             font-weight: bold;
-            margin: 0 20px;
+
+            transition: 0.3s;
+
         }
+
 
         nav a:hover {
+
             color: #00d9ff;
+
         }
 
-        /* ABOUT CONTAINER */
 
-        .about-container {
-            width: 85%;
-            max-width: 900px;
+        /* ================= HERO ================= */
 
-            margin: 60px auto;
+        .about-hero {
 
             text-align: center;
+
+            padding: 70px 20px 45px;
+
         }
 
-        /* TITLE */
 
-        .about-title {
+        .about-hero h2 {
+
             font-size: 48px;
+
+            margin-bottom: 15px;
+
             color: white;
 
-            margin-bottom: 40px;
-
             text-shadow:
-                0 0 10px rgba(0, 200, 255, 0.5);
+                0 0 15px rgba(0, 217, 255, 0.45);
+
         }
 
-        /* SECTIONS */
 
-        .about-section {
+        .about-hero p {
 
-            background: rgba(255, 255, 255, 0.08);
+            max-width: 750px;
 
-            border: 1px solid rgba(0, 200, 255, 0.4);
+            margin: auto;
+
+            color: #cdd8e8;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* ================= MAIN CONTAINER ================= */
+
+        .about-container {
+
+            width: 90%;
+
+            max-width: 1100px;
+
+            margin: 0 auto 70px;
+
+        }
+
+
+        /* ================= ABOUT GRID ================= */
+
+        .about-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+
+        }
+
+
+        /* ================= ABOUT CARDS ================= */
+
+        .about-card {
+
+            background:
+                rgba(255, 255, 255, 0.07);
+
+            border:
+                1px solid rgba(0, 217, 255, 0.28);
+
+            border-radius: 18px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.3);
+
+            backdrop-filter: blur(8px);
+
+            transition: 0.3s;
+
+        }
+
+
+        .about-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            border-color:
+                rgba(0, 217, 255, 0.7);
+
+            box-shadow:
+                0 12px 35px
+                rgba(0, 217, 255, 0.12);
+
+        }
+
+
+        .about-card h3 {
+
+            color: #00d9ff;
+
+            font-size: 25px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .about-card p {
+
+            color: #f1f5fa;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* ================= FEATURES ================= */
+
+        .features-section {
+
+            margin-top: 25px;
+
+            background:
+                rgba(255, 255, 255, 0.07);
+
+            border:
+                1px solid rgba(0, 217, 255, 0.28);
 
             border-radius: 18px;
 
             padding: 35px;
 
-            margin: 30px auto;
-
-            max-width: 800px;
-
             box-shadow:
-                0 8px 25px rgba(0, 0, 0, 0.35);
+                0 10px 30px
+                rgba(0, 0, 0, 0.3);
 
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(8px);
+
         }
 
-        .about-section h2 {
+
+        .features-section h3 {
 
             color: #00d9ff;
 
-            font-size: 30px;
+            text-align: center;
 
-            margin-bottom: 20px;
+            font-size: 28px;
+
+            margin-bottom: 28px;
+
         }
 
-        .about-section p {
-
-            color: white;
-
-            font-size: 20px;
-
-            line-height: 1.8;
-        }
-
-        /* FEATURES */
 
         .features {
 
-            display: flex;
+            display: grid;
 
-            flex-direction: column;
+            grid-template-columns:
+                repeat(2, 1fr);
 
-            gap: 20px;
+            gap: 18px;
 
-            margin-top: 20px;
         }
+
+
+        /* ================= FEATURE CARD ================= */
 
         .feature {
 
-            background: rgba(0, 90, 180, 0.25);
+            background:
+                rgba(0, 90, 180, 0.18);
 
-            padding: 20px;
+            border:
+                1px solid rgba(0, 217, 255, 0.18);
 
-            border-radius: 12px;
+            border-radius: 14px;
 
-            border-left: 4px solid #00d9ff;
+            padding: 22px;
+
+            transition: 0.3s;
+
         }
 
-        .feature h3 {
+
+        .feature:hover {
+
+            transform:
+                translateY(-4px);
+
+            border-color:
+                #00d9ff;
+
+        }
+
+
+        .feature h4 {
 
             color: #00d9ff;
 
-            font-size: 22px;
+            font-size: 20px;
 
-            margin-bottom: 8px;
+            margin-bottom: 9px;
+
         }
+
 
         .feature p {
 
-            font-size: 17px;
+            color: #e6edf5;
+
+            font-size: 15px;
 
             line-height: 1.6;
+
         }
 
-        /* MOBILE */
 
-        @media (max-width: 600px) {
+        /* ================= COURSE COMPLETION ================= */
+
+        .completion-feature {
+
+            grid-column:
+                1 / -1;
+
+            background:
+                linear-gradient(
+                    rgba(0, 90, 180, 0.25),
+                    rgba(0, 40, 100, 0.3)
+                );
+
+            border:
+                1px solid rgba(0, 217, 255, 0.4);
+
+        }
+
+
+        .completion-feature h4 {
+
+            font-size: 21px;
+
+        }
+
+
+        /* ================= OBJECTIVE ================= */
+
+        .objective {
+
+            margin-top: 25px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    rgba(0, 70, 150, 0.25),
+                    rgba(0, 30, 80, 0.35)
+                );
+
+            border:
+                1px solid rgba(0, 217, 255, 0.4);
+
+            border-radius: 18px;
+
+            padding: 38px;
+
+        }
+
+
+        .objective h3 {
+
+            color: #00d9ff;
+
+            font-size: 28px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .objective p {
+
+            max-width: 850px;
+
+            margin: auto;
+
+            color: white;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 22px;
+
+            background:
+                rgba(5, 25, 60, 0.9);
+
+            border-top:
+                1px solid rgba(0, 217, 255, 0.25);
+
+            color: #b8c7d9;
+
+            font-size: 14px;
+
+        }
+
+
+        /* ================= TABLET ================= */
+
+        @media (max-width: 800px) {
+
+            header {
+
+                flex-direction: column;
+
+                gap: 18px;
+
+                padding: 20px;
+
+            }
+
+
+            header h1 {
+
+                font-size: 21px;
+
+                text-align: center;
+
+            }
+
+
+            nav {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 15px;
+
+            }
+
+
+            .about-hero {
+
+                padding-top: 45px;
+
+            }
+
+
+            .about-hero h2 {
+
+                font-size: 36px;
+
+            }
+
+
+            .about-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .features {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .completion-feature {
+
+                grid-column: auto;
+
+            }
+
 
             .about-container {
+
                 width: 92%;
-                margin-top: 35px;
+
             }
 
-            .about-title {
-                font-size: 34px;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 500px) {
+
+            .about-hero h2 {
+
+                font-size: 30px;
+
             }
 
-            .about-section {
-                padding: 25px 18px;
+
+            .about-hero p {
+
+                font-size: 16px;
+
             }
 
-            .about-section h2 {
-                font-size: 25px;
+
+            .about-card,
+            .features-section,
+            .objective {
+
+                padding: 24px 18px;
+
             }
 
-            .about-section p {
-                font-size: 17px;
-            }
 
             nav a {
-                display: inline-block;
-                margin: 8px;
-                font-size: 17px;
+
+                font-size: 14px;
+
             }
+
         }
 
     </style>
 
 </head>
 
+
 <body>
+
+
+<!-- ================= HEADER ================= -->
 
 <header>
 
-    <h1>🎓 Smart Course Recommendation System</h1>
+    <h1>
+        🎓 Smart Course Recommendation System
+    </h1>
+
+
+    <nav>
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/about">
+            About
+        </a>
+
+        <a href="/recommendation">
+            Courses
+        </a>
+
+        <a href="/login">
+            Login
+        </a>
+
+        <a href="/register">
+            Register
+        </a>
+
+    </nav>
 
 </header>
 
 
-<nav>
+<!-- ================= ABOUT HERO ================= -->
 
-    <a href="/">Home</a>
+<section class="about-hero">
 
-    <a href="/about">About</a>
+    <h2>
+        About Our Project
+    </h2>
 
-    <a href="/recommendation">Courses</a>
 
-    <a href="/login">Login</a>
+    <p>
 
-    <a href="/register">Register</a>
+        An intelligent platform designed to help students
+        discover suitable career paths, courses, and
+        personalized learning opportunities.
 
-</nav>
+    </p>
 
+</section>
+
+
+<!-- ================= MAIN CONTENT ================= -->
 
 <div class="about-container">
 
-    <h1 class="about-title">
-        About Our Project
-    </h1>
+
+    <!-- ================= ABOUT CARDS ================= -->
+
+    <div class="about-grid">
 
 
-    <!-- SECTION 1 -->
+        <!-- SYSTEM -->
 
-    <div class="about-section">
+        <div class="about-card">
 
-        <h2>📚 About the System</h2>
+            <h3>
+                📚 About the System
+            </h3>
 
-        <p>
-            The Smart Course Recommendation System helps students
-            choose the best course according to their interests,
-            skills, and career goals.
-        </p>
+            <p>
 
-    </div>
+                The Smart Course Recommendation System helps
+                students choose the best course according to
+                their interests, skills, and career goals.
 
+            </p>
 
-    <!-- SECTION 2 -->
-
-    <div class="about-section">
-
-        <h2>🤖 Artificial Intelligence</h2>
-
-        <p>
-            It uses Artificial Intelligence and Machine Learning
-            concepts to recommend suitable courses for students
-            based on their skill assessment.
-        </p>
-
-    </div>
+        </div>
 
 
-    <!-- SECTION 3 -->
+        <!-- AI -->
 
-    <div class="about-section">
+        <div class="about-card">
 
-        <h2>🎯 Career Recommendation</h2>
+            <h3>
+                🤖 Artificial Intelligence
+            </h3>
 
-        <p>
-            The system analyzes programming, mathematics,
-            problem-solving, communication, and creativity skills
-            to suggest a suitable career path.
-        </p>
+            <p>
 
-    </div>
+                It uses Artificial Intelligence and Machine
+                Learning concepts to recommend suitable courses
+                for students based on their skill assessment.
 
+            </p>
 
-    <!-- SECTION 4 -->
-
-    <div class="about-section">
-
-        <h2>💡 Key Features</h2>
-
-        <div class="features">
-
-            <div class="feature">
-
-                <h3>🧠 AI Skill Assessment</h3>
-
-                <p>
-                    Evaluates the student's skills and identifies
-                    suitable career options.
-                </p>
-
-            </div>
+        </div>
 
 
-            <div class="feature">
+        <!-- CAREER -->
 
-                <h3>📖 Course Recommendation</h3>
+        <div class="about-card">
 
-                <p>
-                    Provides courses related to the recommended
-                    career and area of interest.
-                </p>
+            <h3>
+                🎯 Career Recommendation
+            </h3>
 
-            </div>
+            <p>
 
+                The system analyzes programming, mathematics,
+                problem-solving, communication, and creativity
+                skills to suggest a suitable career path.
 
-            <div class="feature">
+            </p>
 
-                <h3>🛣️ Learning Roadmap</h3>
-
-                <p>
-                    Provides a step-by-step learning path to help
-                    students develop their skills.
-                </p>
-
-            </div>
+        </div>
 
 
-            <div class="feature">
+        <!-- LEARNING -->
 
-                <h3>🏆 Certificate</h3>
+        <div class="about-card">
 
-                <p>
-                    Generates a personalized certificate after
-                    completing the selected course and learning
-                    roadmap.
-                </p>
+            <h3>
+                🛣️ Personalized Learning
+            </h3>
 
-            </div>
+            <p>
+
+                After selecting a course, students can follow
+                a structured learning roadmap, access study
+                resources, and track their lesson progress.
+
+            </p>
 
         </div>
 
     </div>
 
 
-    <!-- SECTION 5 -->
+    <!-- ================= KEY FEATURES ================= -->
 
-    <div class="about-section">
+    <section class="features-section">
 
-        <h2>🚀 Project Objective</h2>
+        <h3>
+            💡 Key Features
+        </h3>
+
+
+        <div class="features">
+
+
+            <!-- FEATURE 1 -->
+
+            <div class="feature">
+
+                <h4>
+                    🧠 AI Skill Assessment
+                </h4>
+
+                <p>
+
+                    Evaluates the student's skills and identifies
+                    suitable career options.
+
+                </p>
+
+            </div>
+
+
+            <!-- FEATURE 2 -->
+
+            <div class="feature">
+
+                <h4>
+                    📖 Course Recommendation
+                </h4>
+
+                <p>
+
+                    Provides courses related to the recommended
+                    career and area of interest.
+
+                </p>
+
+            </div>
+
+
+            <!-- FEATURE 3 -->
+
+            <div class="feature">
+
+                <h4>
+                    🛣️ Learning Roadmap
+                </h4>
+
+                <p>
+
+                    Provides a step-by-step learning path to help
+                    students develop their skills.
+
+                </p>
+
+            </div>
+
+
+            <!-- FEATURE 4 -->
+
+            <div class="feature">
+
+                <h4>
+                    📊 Progress Tracking
+                </h4>
+
+                <p>
+
+                    Tracks completed lessons and displays the
+                    student's learning progress.
+
+                </p>
+
+            </div>
+
+
+            <!-- FEATURE 5 -->
+
+            <div class="feature completion-feature">
+
+                <h4>
+                    🎉 Course Completion
+                </h4>
+
+                <p>
+
+                    After completing all lessons in the selected
+                    course, the system automatically displays a
+                    Congratulations message confirming that the
+                    student has successfully completed the course.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PROJECT OBJECTIVE ================= -->
+
+    <section class="objective">
+
+        <h3>
+            🚀 Project Objective
+        </h3>
+
 
         <p>
-            The main objective of this project is to help students
-            make better career and course decisions by providing
-            personalized recommendations based on their skills,
-            interests, and career goals.
+
+            The main objective of this project is to help
+            students make better career and course decisions
+            by providing personalized recommendations based
+            on their skills, interests, and career goals.
+
         </p>
 
-    </div>
+    </section>
+
 
 </div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    © 2026 Smart Course Recommendation System
+    | AI-Based Personalized Learning
+
+</footer>
+
 
 </body>
 
